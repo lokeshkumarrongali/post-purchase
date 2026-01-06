@@ -51,7 +51,7 @@ function MonetisationSection({ order, setOrder }) {
 
   return (
     <div>
-      <h3>Smart Add-Ons</h3>
+      <h3 style={{ marginBottom: '1rem', color: '#444' }}>Smart Add-Ons</h3>
       <AddOnCard
         title={addOnData.title}
         benefit={addOnData.benefit}

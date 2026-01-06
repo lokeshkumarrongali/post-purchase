@@ -19,16 +19,42 @@ function OrderTimelineSection({ orderStatus }) {
 
   return (
     <div>
-      <h3>Order Timeline</h3>
-      <div style={{ display: 'flex', gap: '1rem' }}>
+      <h3 style={{ marginBottom: '1rem', color: '#444' }}>Order Timeline</h3>
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between',
+        backgroundColor: '#fff',
+        padding: '1.5rem',
+        borderRadius: '12px',
+        border: '1px solid #eaeaea',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+      }}>
         {steps.map((step, index) => {
           const status = getStepStatus(step, index);
+          const isCompleted = status === 'completed';
+          const isCurrent = status === 'current';
+          
           return (
-            <div key={step} className={`step ${status}`}>
-              <span>{step}</span>
-              <span style={{ marginLeft: '0.5rem', fontSize: '0.8em', color: 'gray' }}>
-                ({status})
-              </span>
+            <div key={step} style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center', 
+              flex: 1,
+              opacity: status === 'upcoming' ? 0.5 : 1
+            }}>
+              <div style={{
+                width: '12px',
+                height: '12px',
+                borderRadius: '50%',
+                backgroundColor: isCompleted || isCurrent ? '#007bff' : '#ddd',
+                marginBottom: '0.5rem',
+                boxShadow: isCurrent ? '0 0 0 4px rgba(0,123,255,0.2)' : 'none'
+              }} />
+              <span style={{ 
+                fontWeight: isCurrent ? '700' : '500',
+                color: isCurrent ? '#007bff' : '#333',
+                fontSize: '0.9rem'
+              }}>{step}</span>
             </div>
           );
         })}

@@ -11,7 +11,7 @@ const PostPurchasePage = () => {
   const [order, setOrder] = useState(mockOrder);
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       <Header />
       <OrderSummarySection order={order} />
       <OrderTimelineSection orderStatus={order.orderStatus} />
