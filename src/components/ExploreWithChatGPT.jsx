@@ -66,11 +66,23 @@ function ExploreWithChatGPT() {
                 alignItems: 'center', 
                 justifyContent: 'center',
                 marginBottom: '0.8rem',
-                transition: 'background-color 0.2s',
-                overflow: 'hidden'
+                transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                overflow: 'hidden',
+                boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                border: '1px solid transparent'
               }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e0e0e0'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#fff';
+                e.currentTarget.style.transform = 'scale(1.08)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,123,255,0.15)';
+                e.currentTarget.style.borderColor = 'rgba(0,123,255,0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#f5f5f5';
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.05)';
+                e.currentTarget.style.borderColor = 'transparent';
+              }}
               >
                 {item.isImage ? (
                   <img src={item.icon} alt={item.label} style={{ width: '60%', height: '60%', objectFit: 'contain' }} />

@@ -5,6 +5,7 @@ import OrderSummarySection from '../components/OrderSummarySection';
 import OrderTimelineSection from '../components/OrderTimelineSection';
 import NextStepsSection from '../components/NextStepsSection';
 import MonetisationSection from '../components/MonetisationSection';
+import ComboOffersSection from '../components/ComboOffersSection';
 import ExploreWithChatGPT from '../components/ExploreWithChatGPT';
 import PromoSlider from '../components/PromoSlider';
 import DemoControlSection from '../components/DemoControlSection';
@@ -19,6 +20,7 @@ const PostPurchasePage = () => {
       <OrderTimelineSection orderStatus={order.orderStatus} />
       <NextStepsSection />
       <MonetisationSection order={order} setOrder={setOrder} />
+      <ComboOffersSection />
       <ExploreWithChatGPT />
       <PromoSlider />
       <DemoControlSection order={order} setOrder={setOrder} />

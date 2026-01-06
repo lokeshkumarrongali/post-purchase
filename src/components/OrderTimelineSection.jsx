@@ -40,7 +40,8 @@ function OrderTimelineSection({ orderStatus }) {
               flexDirection: 'column', 
               alignItems: 'center', 
               flex: 1,
-              opacity: status === 'upcoming' ? 0.5 : 1
+              opacity: status === 'upcoming' ? 0.5 : 1,
+              transition: 'opacity 0.3s ease'
             }}>
               <div style={{
                 width: '12px',
@@ -48,12 +49,15 @@ function OrderTimelineSection({ orderStatus }) {
                 borderRadius: '50%',
                 backgroundColor: isCompleted || isCurrent ? '#007bff' : '#ddd',
                 marginBottom: '0.5rem',
-                boxShadow: isCurrent ? '0 0 0 4px rgba(0,123,255,0.2)' : 'none'
+                transform: isCurrent ? 'scale(1.2)' : 'scale(1)',
+                boxShadow: isCurrent ? '0 0 0 4px rgba(0,123,255,0.2)' : 'none',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
               }} />
               <span style={{ 
                 fontWeight: isCurrent ? '700' : '500',
                 color: isCurrent ? '#007bff' : '#333',
-                fontSize: '0.9rem'
+                fontSize: '0.9rem',
+                transition: 'color 0.3s ease'
               }}>{step}</span>
             </div>
           );

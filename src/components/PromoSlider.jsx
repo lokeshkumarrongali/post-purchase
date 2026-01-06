@@ -111,12 +111,23 @@ const PromoSlider = () => {
         aria-label={`Open ${currentPromo.name}`}
       >
         <img 
-          key={currentPromo.id} // Key change triggers animation if CSS handles it, or just ensures fresh render
+          key={currentPromo.id} 
           src={currentPromo.image} 
           alt={`${currentPromo.name} promo banner`} 
-          style={imageStyle} 
+          style={{
+            ...imageStyle,
+            animation: 'fadeInSlide 0.4s ease-out'
+          }} 
           className="promo-banner-image"
         />
+        <style>
+          {`
+            @keyframes fadeInSlide {
+              from { opacity: 0.6; transform: scale(0.99); }
+              to { opacity: 1; transform: scale(1); }
+            }
+          `}
+        </style>
         {/* Simple fade animation via keyframe could be added in a global css or style block if strictly needed, 
             but standard react re-render with key prop usually flickers without CSS transition group. 
             For "Calm", a direct switch is often better than a jumpy JS animation. 

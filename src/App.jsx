@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   return (
-    <div className="main-container">
+    <div className="main-container animate-entrance">
       <PostPurchasePage />
     </div>
   )
